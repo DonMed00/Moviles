@@ -1,0 +1,69 @@
+<!--
+  Generated template for the Pagina3Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Datos moviles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img [src]="movil.imagen">
+    </ion-avatar>
+    <h1>{{movil.marca}} {{movil.modelo}}</h1>
+    <p>Salida al Mercado: {{movil.fecha}}</p>
+  </ion-item>
+
+  <img [src]="movil.imagen2">
+
+  <ion-card-content>
+    <ul>
+      <li>{{movil.procesador}}</li>
+      <li>{{movil.capacidad}}</li>
+      <li>{{movil.pantalla}}</li>
+      <li>{{movil.camara}}</li>
+      <li>{{movil.bateria}}</li>
+      <li>{{movil.os}}</li>
+      <li>{{movil.color}}</li>
+  </ul>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="phone-portrait"> </ion-icon>
+        <div>Stock:  {{movil.cantidad}}</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button
+       icon-start
+       (click)="navegarPagina()"
+        clear small>
+        <div>COMPRAR / RESERVAR</div>
+      </button>
+      <ion-item>
+    <ion-input size="20" min="0" max={{movil.cantidad}} type="number" placeholder="Introduce cantidad"></ion-input>
+  </ion-item>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <div> {{movil.precio}} &nbsp;</div>
+        <ion-icon name="logo-euro"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+</ion-content>

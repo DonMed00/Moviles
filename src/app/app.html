@@ -1,0 +1,21 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Secciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="abrirPagina(principal)">
+      Inicio
+    </button>
+      <button ion-item (click)="abrirPagina(pagina2)">
+      Ver catálogo
+    </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #content></ion-nav>
