@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Pagina3Page} from '../index.paginas';
 
 /**
  * Generated class for the Pagina4Page page.
@@ -16,6 +17,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class Pagina4Page {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+  navegarPagina(){
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
