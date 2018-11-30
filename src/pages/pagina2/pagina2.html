@@ -23,9 +23,9 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let movil of moviles"
+    <ion-item *ngFor="let movil of catalogo | async"
     (click)="irPagina3(movil)">
-      {{movil.marca}}
+      {{ movil.marca }}
     </ion-item>
   </ion-list>
 
