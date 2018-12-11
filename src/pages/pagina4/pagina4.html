@@ -7,30 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Formulario Compra</ion-title>
+    <ion-title>QR Compra</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <form>
-        <ion-item>
-          <ion-label>Nombre</ion-label>
-          <ion-input type="text"name="title"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Apellidos</ion-label>
-          <ion-input type="text"name="title"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Teléfono</ion-label>
-          <ion-input maxlength=9 type="tel"name="title"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Dirección</ion-label>
-          <ion-input type="text"name="title"></ion-input>
-        </ion-item>
-        <button ion-button (click)="navegarPagina()" type="submit" block>Pagar</button>
-        </form>
+  <h3>Puedes realizar la compra en la web oficial mediante el siguiente enlace:</h3>
+  <a href={{movil.compra}} target="_blank"><img src={{movil.logo}}/></a>
+  <h3>O bien a traves de scanner en The Phone House</h3>
+  <button ion-button
+          block
+          (click)="scan()">
+        Realizar compra mediante Scan
+      </button>
 </ion-content>

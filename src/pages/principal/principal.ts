@@ -23,7 +23,7 @@ export class PrincipalPage {
   }
 
   mostrarMenu(){
-    console.log("entra");
+    console.log("Mostrando menú");
     this.menuCtl.toggle();
   }
 

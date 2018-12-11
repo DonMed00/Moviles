@@ -1,5 +1,7 @@
 {
   "name": "moviles",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

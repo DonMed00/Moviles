@@ -22,9 +22,12 @@ export class Pagina3Page {
 
     this.movil = this.navParams.get("movil");
   }
-  navegarPagina(){
+  navegarPagina(movil: any){
     if(this.movil.cantidad>0){
-    this.navCtrl.push(Pagina4Page);
+      this.navCtrl.push(
+        Pagina4Page,
+        {'movil' : movil}
+      );
   }else{
     var correo = prompt("No quedan existencias,para ser informado\nIntroduce e-mail aquí", "");
     if (correo != null){

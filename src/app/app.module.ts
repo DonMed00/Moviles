@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
@@ -25,6 +28,7 @@ import {
         Pagina3Page,
         Pagina4Page
 } from '../pages/index.paginas';
+import { HistorialProvider } from '../providers/historial/historial';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,10 @@ import {
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    BarcodeScanner,
+    InAppBrowser,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HistorialProvider
   ]
 })
 export class AppModule {}
