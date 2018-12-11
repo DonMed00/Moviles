@@ -34,7 +34,7 @@ export class Pagina4Page {
   scan() {
     console.log("Realizando escáner");
 if (!this.platform.is('cordova')){
-  this.historialService.agregarHistorial("http://www.google.es");
+  this.mostrarError("Error: Plataforma no soportada");
 
   return;
 }
@@ -62,7 +62,7 @@ this.barcodeScanner.scan().then((barcodeData) => {
   mostrarError(mensaje: string){
     let toast = this.toastCtlr.create({
       message: mensaje,
-      duration: 1500
+      duration: 3000
     })
     toast.present();
   }

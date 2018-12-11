@@ -24,10 +24,13 @@ export class Pagina3Page {
   }
   navegarPagina(movil: any){
     if(this.movil.cantidad>0){
+
       this.navCtrl.push(
         Pagina4Page,
         {'movil' : movil}
       );
+      console.log('Se reduce el stock por posible compra');
+      this.movil.cantidad-=1;
   }else{
     var correo = prompt("No quedan existencias,para ser informado\nIntroduce e-mail aquí", "");
     if (correo != null){
