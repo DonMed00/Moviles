@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {PrincipalPage,Pagina4Page} from '../index.paginas';
+import {Pagina4Page} from '../index.paginas';
 
 /**
  * Generated class for the Pagina3Page page.
