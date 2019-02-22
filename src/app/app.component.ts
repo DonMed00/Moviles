@@ -3,12 +3,12 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { PrincipalPage, Pagina2Page } from '../pages/index.paginas';
+import { PrincipalPage, Pagina2Page, LoginPage } from '../pages/index.paginas';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = PrincipalPage;
+  rootPage:any = LoginPage;
   pagina2 = Pagina2Page;
   principal = PrincipalPage;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl : MenuController) {

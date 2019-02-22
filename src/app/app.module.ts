@@ -7,10 +7,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { UsuarioProvider } from '../providers/usuario/usuario';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 var firebaseConfig = {
     apiKey: "AIzaSyDHvXzsNuQJY-r9S4Y41TX-xuWE63o3Vco",
@@ -26,7 +32,8 @@ import {
         PrincipalPage,
         Pagina2Page,
         Pagina3Page,
-        Pagina4Page
+        Pagina4Page,
+        LoginPage
 } from '../pages/index.paginas';
 import { HistorialProvider } from '../providers/historial/historial';
 
@@ -36,14 +43,18 @@ import { HistorialProvider } from '../providers/historial/historial';
     PrincipalPage,
     Pagina2Page,
     Pagina3Page,
-    Pagina4Page
+    Pagina4Page,
+    LoginPage
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
-      backButtonText: 'Volver',
+      backButtonText: 'Vover',
       backButtonIcon: 'walk',
     }),
+    AngularFirestoreModule,
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -55,7 +66,8 @@ import { HistorialProvider } from '../providers/historial/historial';
     PrincipalPage,
     Pagina2Page,
     Pagina3Page,
-    Pagina4Page
+    Pagina4Page,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -63,8 +75,10 @@ import { HistorialProvider } from '../providers/historial/historial';
     AngularFireDatabase,
     BarcodeScanner,
     InAppBrowser,
+    AngularFirestoreModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HistorialProvider
+    HistorialProvider,
+    UsuarioProvider
   ]
 })
 export class AppModule {}
