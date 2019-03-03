@@ -4,9 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 
@@ -19,12 +16,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 var firebaseConfig = {
-    apiKey: "AIzaSyDHvXzsNuQJY-r9S4Y41TX-xuWE63o3Vco",
-    authDomain: "catalogomovil-858dc.firebaseapp.com",
-    databaseURL: "https://catalogomovil-858dc.firebaseio.com",
-    projectId: "catalogomovil-858dc",
-    storageBucket: "catalogomovil-858dc.appspot.com",
-    messagingSenderId: "569910277293"
+  apiKey: "AIzaSyAgX_U4vG09KIYdMDdvjdo3C976dgU6TMI",
+  authDomain: "moviles-c24af.firebaseapp.com",
+  databaseURL: "https://moviles-c24af.firebaseio.com",
+  projectId: "moviles-c24af",
+  storageBucket: "moviles-c24af.appspot.com",
+  messagingSenderId: "39832936395"
   };
 
 import { MyApp } from './app.component';
@@ -32,26 +29,24 @@ import {
         PrincipalPage,
         Pagina2Page,
         Pagina3Page,
-        Pagina4Page,
-        LoginPage
-} from '../pages/index.paginas';
-import { HistorialProvider } from '../providers/historial/historial';
+        LoginPage,
+        ListaPage
 
+} from '../pages/index.paginas';
+import { ListaProvider } from '../providers/lista/lista';
 @NgModule({
   declarations: [
     MyApp,
     PrincipalPage,
     Pagina2Page,
     Pagina3Page,
-    Pagina4Page,
-    LoginPage
-
+    LoginPage,
+    ListaPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
-      backButtonText: 'Vover',
-      backButtonIcon: 'walk',
+      backButtonText: 'Volver'
     }),
     AngularFirestoreModule,
     IonicStorageModule.forRoot(),
@@ -66,19 +61,18 @@ import { HistorialProvider } from '../providers/historial/historial';
     PrincipalPage,
     Pagina2Page,
     Pagina3Page,
-    Pagina4Page,
-    LoginPage
+    LoginPage,
+    ListaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    BarcodeScanner,
-    InAppBrowser,
     AngularFirestoreModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HistorialProvider,
-    UsuarioProvider
+    UsuarioProvider,
+    ListaProvider,
+    ListaProvider
   ]
 })
 export class AppModule {}

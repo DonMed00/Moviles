@@ -1,12 +1,12 @@
 <!--
-  Generated template for the Pagina2Page page.
+  Generated template for the ListaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title text-center >Principales Marcas</ion-title>
+    <ion-title text-center >Lista de Deseos</ion-title>
     <ion-buttons left>
       <button color='negro'
               ion-button menuToggle="leftMenu"
@@ -26,13 +26,25 @@
   </ion-navbar>
   </ion-header>
 
-
 <ion-content padding>
-  <div class="">
-    <div class="cajas" *ngFor="let movil of catalogo | async"
-    (click)="irPagina3(movil)">
-    <img src={{movil.fondo}}>
-    </div>
-  </div>
-
+  <h4>{{nada}}</h4>
+  <ion-item *ngFor="let movil of lista">
+    <ion-list>
+<ion-item >
+  <ion-avatar item-start>
+  <img src={{movil.img}}>
+</ion-avatar>
+<h2>  {{ movil.marca }} {{ movil.modelo }}</h2>
+<p>{{movil.precio}} €</p>
+<button ion-button
+ (click)="verDatos(movil)">
+<div>Ver más</div>
+</button>
+<button ion-button
+(click)="eliminar(movil)">
+<div>Eliminar</div>
+</button>
+</ion-item>
+</ion-list>
+  </ion-item>
 </ion-content>

@@ -3,8 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController} from 'ionic-angula
 import {Pagina3Page} from '../index.paginas';
 
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Observable } from 'rxjs/Observable';
-/**
+import { Observable } from 'rxjs/Observable';/**
  * Generated class for the Pagina2Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -25,10 +24,11 @@ export class Pagina2Page {
               private menuCtl: MenuController,
               private afDB: AngularFireDatabase) {
           this.catalogo = afDB.list('catalogo').valueChanges();
+
   }
 
   mostrarMenu(){
-    console.log("entra");
+    console.log("entrando");
     this.menuCtl.toggle();
   }
 

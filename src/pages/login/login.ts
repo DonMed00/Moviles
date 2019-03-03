@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, AlertController, LoadingController } from 'ionic-angular';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import {PrincipalPage} from '../index.paginas';
+import * as firebase from 'firebase';
 
 /**
  * Generated class for the LoginPage page.
@@ -23,7 +24,8 @@ export class LoginPage {
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController,
               private usuarioProvider: UsuarioProvider) {
-  }
+
+              }
 
   ionViewDidLoad() {
     this.slides.paginationType = 'progress';
@@ -76,7 +78,7 @@ export class LoginPage {
       }else {
         this.alertCtrl.create({
           title: 'Usuario incorrecto',
-          subTitle: 'Hable con el administrador de la app',
+          subTitle: 'Inténtelo de nuevo',
           buttons: ['Aceptar']
         }).present();
       }

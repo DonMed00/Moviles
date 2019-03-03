@@ -4,15 +4,6 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title text-center>Datos moviles</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
   <ion-card>
 
@@ -21,7 +12,7 @@
       <img src={{movil.img}}>
     </ion-avatar>
     <h1>{{movil.marca}} {{movil.modelo}}</h1>
-    <p>Salida al Mercado: {{movil.fecha}}</p>
+    <p>{{movil.fecha}}</p>
   </ion-item>
 
   <img src={{movil.img2}}>
@@ -34,18 +25,11 @@
 
   <ion-row>
     <ion-col>
-      <button ion-button icon-start clear small>
-        <ion-icon name="phone-portrait"> </ion-icon>
-        <div>Stock:  {{movil.cantidad}}</div>
-      </button>
-    </ion-col>
-    <ion-col>
       <button ion-button
-       icon-start
-       (click)="navegarPagina(movil)"
-        clear small>
-        <div>COMPRAR / RESERVAR</div>
+      (click)="addToList(movil, i)" [clear]=true>
+      <div>{{add[0]}}</div>
       </button>
+
     </ion-col>
     <ion-col>
       <button ion-button icon-start clear small>
@@ -53,8 +37,13 @@
         <ion-icon name="logo-euro"></ion-icon>
       </button>
     </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small (click)="regresar()">
+        <div> Regresar</div>
+      </button>
+    </ion-col>
   </ion-row>
-
 </ion-card>
+
 
 </ion-content>

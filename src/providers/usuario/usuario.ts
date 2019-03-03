@@ -72,4 +72,14 @@ export class UsuarioProvider {
       }
     });
   }
+
+borrarUsuario(){
+  this.clave = null;
+  if (this.platform.is('cordova')){
+    this.storage.remove('clave');
+  }else{
+    localStorage.removeItem('clave');
+  }
+}
+
 }

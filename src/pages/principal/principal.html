@@ -6,41 +6,40 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title text-center >MovilApp Online </ion-title>
+    <ion-title text-center >MovilApp</ion-title>
     <ion-buttons left>
       <button color='negro'
-              ion-button
+              ion-button menuToggle="leftMenu"
               icon-only
               (click)="mostrarMenu()">
               <ion-icon name="menu"></ion-icon>
             </button>
     </ion-buttons>
-
-
+    <ion-buttons right>
+      <button color='negro'
+              ion-button menuToggle="rightMenu"
+              icon-only
+              (click)="mostrarMenu()">
+              <ion-icon name="person"></ion-icon>
+            </button>
+    </ion-buttons>
   </ion-navbar>
-</ion-header>
+  </ion-header>
 
 
-<ion-content class="card-background-page">
-  <p class="principal">Esta aplicación trabaja con diferentes marcas de dispositivos móviles y páginas webs para ofrecer un servicio de venta. A través de aqui puedes consultar las diferentes marcas, ver nuestro catálogo incluso realizar la compra de los dispositivos a través de su tienda oficia o por un codigo QR.</p>
-  <h3>Principales Marcas</h3>
-  <ion-card>
-    <img src="/assets/imgs/apple.png"/>
-  </ion-card>
-  <ion-card>
-    <img src="/assets/imgs/sony.png"/>
-  </ion-card>
-  <ion-card>
-    <img src="/assets/imgs/samsung.jpg"/>
-  </ion-card>
-  <p class="principal">Gracias por usar la App, siempre puedes contactar con nosotros en el correo mostrado abajo para cualquier sugerencia o mejora.</p>
+
+
+<ion-content padding>
+  <h1>Nuestros dispositivos</h1>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let movil of movilList">
+      <h2> {{ movil.marca }} {{ movil.modelo }} </h2>
+      <img src="{{movil.img}}" />
+      <button ion-button icon-start clear small (click)="verInfo(movil)">
+      <p class="p">Ver más</p>
+    </button>
+    </ion-item>
+  </ion-list>
 </ion-content>
-
-<ion-footer>
-
-
-  <p>Sable Ridge, Aurora, Colorado 80012, EE. UU.</p>
-  <p>Contact information: <a href="mailto:correo@correo.com">
-  correo@correo.com</a>.</p>
-  <p>Created by Adrian Mena  2018</p>
-</ion-footer>

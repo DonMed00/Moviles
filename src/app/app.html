@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu id="leftMenu" [content]="content" side="left" type="overlay">
   <ion-header>
     <ion-toolbar>
       <ion-title>Secciones</ion-title>
@@ -16,6 +16,41 @@
     </ion-list>
   </ion-content>
 </ion-menu>
+
+<ion-menu id="rightMenu" [content]="content" side="right" type="reveal">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Hola {{usuarioProvider.clave}}</ion-title>
+      <p> {{myDate}}</p>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="abrirPagina(principal)">
+      Inicio
+    </button>
+    <button ion-item (click)="abrirPagina(lista)">
+    Mi lista de deseos
+  </button>
+      <button ion-item (click)="salir()">
+      Salir
+    </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+
+
+
+
+<ion-footer>
+  <p>IES SALADILLO, Algeciras 11207,Spain.</p>
+  <p>Correo de contacto: <a href="mailto:xmena97@gmail.com">
+  xmena97@gmail.com</a>.</p>
+  <p>Created by Adrian Mena  2019</p>
+</ion-footer>
 
 
 <ion-nav [root]="rootPage" #content></ion-nav>

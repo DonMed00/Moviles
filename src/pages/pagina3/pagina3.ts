@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Pagina4Page} from '../index.paginas';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import {Pagina2Page} from '../index.paginas';
+import { ListaProvider } from '../../providers/lista/lista';
 
 /**
  * Generated class for the Pagina3Page page.
@@ -16,33 +17,50 @@ import {Pagina4Page} from '../index.paginas';
 })
 export class Pagina3Page {
   movil: any = {};
+  titulo: string;
+  add: string[] = [];
+  message: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log(navParams);
-
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+             private listaD: ListaProvider,
+             public toastCtlr: ToastController) {
+                console.log(navParams);
     this.movil = this.navParams.get("movil");
+    this.add[0] = "Añadir de la lista";
   }
-  navegarPagina(movil: any){
-    if(this.movil.cantidad>0){
 
-      this.navCtrl.push(
-        Pagina4Page,
-        {'movil' : movil}
-      );
-      console.log('Se reduce el stock por posible compra');
-      this.movil.cantidad-=1;
+regresar(){
+  this.navCtrl.pop();
+}
+addToList(movil : any, i: number){
+let bool: boolean = false;
+  if (this.toogleIcon(i)){
+      this.listaD.addToList(movil);
+      this.message = "Se ha añadido " + movil.marca + movil.modelo + " a la lista";
+
   }else{
-    var correo = prompt("No quedan existencias,para ser informado\nIntroduce e-mail aquí", "");
-    if (correo != null){
-      if(correo.match("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")){
-        alert("Te informaremos cuando\n haya nuevas existencias a\n" + correo);
-      }else{
-        alert("Correo no válido");
-      }
-    }else {
-      alert("No has ingresado un correo");
-    }
+    this.listaD.removeItem(movil);
+    this.message = "Se ha eliminado de la lista";
   }
+
+  let toast = this.toastCtlr.create({
+    message: this.message,
+    duration: 1500
+  })
+  toast.present();
+
+}
+
+toogleIcon(i: number){
+  let bool: boolean = true;
+  if (this.add[0] == "Eliminar a la lista"){
+    this.add[0] = "Añadir de la lista";
+    bool = false;
+  }else{
+    this.add[0] = "Eliminar a la lista";
+  }
+  return bool;
 }
 
 
